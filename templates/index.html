@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+
+{% block title %}Home | DataVault{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="hero-background"></div>
+
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                YOUR ACADEMIC RESOURCE HUB
+            </div>
+
+            <h1>
+                Learn smarter.<br>
+                Build <span>what's next.</span>
+            </h1>
+
+            <p class="hero-description">
+                Welcome to your Smart Digital Library for Data Science.
+                Explore course modules, discover practical lab experiments,
+                and access project resources in one organized space.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="{{ url_for('modules') }}"
+                   class="button button-primary">
+
+                    Explore Modules
+                    <span>↗</span>
+
+                </a>
+
+                <a href="{{ url_for('labs') }}"
+                   class="button button-secondary">
+
+                    View Lab Experiments
+
+                </a>
+
+            </div>
+
+            <div class="hero-note">
+                <span class="hero-note-icon">✳</span>
+                One library. Everything you need to learn.
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="visual-glow"></div>
+
+            <div class="visual-card">
+
+                <div class="visual-card-header">
+
+                    <span class="visual-label">
+                        YOUR LEARNING SPACE
+                    </span>
+
+                    <span class="live-indicator">
+                        <span></span>
+                        READY
+                    </span>
+
+                </div>
+
+
+                <div class="visual-illustration">
+
+                    <div class="orb orb-one"></div>
+                    <div class="orb orb-two"></div>
+
+                    <div class="data-node node-one">01</div>
+                    <div class="data-node node-two">DS</div>
+                    <div class="data-node node-three">∞</div>
+
+                    <div class="data-center">
+                        <span>DATA</span>
+                        <strong>SCIENCE</strong>
+                        <small>LEARN · ANALYZE · BUILD</small>
+                    </div>
+
+                </div>
+
+
+                <div class="visual-card-footer">
+
+                    <div>
+                        <span class="small-label">COURSE</span>
+                        <strong>Data Science</strong>
+                    </div>
+
+                    <div>
+                        <span class="small-label">RESOURCE HUB</span>
+                        <strong>Academic Library</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="floating-tag tag-top">
+                <span>✦</span>
+                Knowledge, organized.
+            </div>
+
+            <div class="floating-tag tag-bottom">
+                <span>05</span>
+                Structured modules
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="stats-section">
+
+    <div class="container stats-grid">
+
+        <div class="stat-item">
+
+            <span class="stat-number">
+                {{ "%02d"|format(module_count) }}
+            </span>
+
+            <div>
+                <strong>Course Modules</strong>
+                <p>Organized learning material</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-item">
+
+            <span class="stat-number">
+                {{ "%02d"|format(lab_count) }}
+            </span>
+
+            <div>
+                <strong>Lab Experiments</strong>
+                <p>Practical learning resources</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-item">
+
+            <span class="stat-number">
+                {{ "%02d"|format(project_count) }}
+            </span>
+
+            <div>
+                <strong>Projects</strong>
+                <p>Work and implementations</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-kicker">EXPLORE THE LIBRARY</span>
+
+                <h2>
+                    Everything in <span>one place.</span>
+                </h2>
+
+                <p>
+                    Your learning resources, thoughtfully organized
+                    for easy access.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="resource-grid">
+
+            <a href="{{ url_for('modules') }}"
+               class="resource-card">
+
+                <div class="resource-icon icon-green">▤</div>
+
+                <span class="card-index">01 / LEARN</span>
+
+                <h3>Course Modules</h3>
+
+                <p>
+                    Access your five course modules and their
+                    corresponding PDF study materials.
+                </p>
+
+                <span class="card-link">
+                    Explore modules ↗
+                </span>
+
+            </a>
+
+
+            <a href="{{ url_for('labs') }}"
+               class="resource-card">
+
+                <div class="resource-icon icon-purple">⌘</div>
+
+                <span class="card-index">02 / PRACTICE</span>
+
+                <h3>Lab Experiments</h3>
+
+                <p>
+                    Find laboratory experiment documents and
+                    practical learning resources.
+                </p>
+
+                <span class="card-link">
+                    Explore experiments ↗
+                </span>
+
+            </a>
+
+
+            <a href="{{ url_for('projects') }}"
+               class="resource-card">
+
+                <div class="resource-icon icon-orange">⌘</div>
+
+                <span class="card-index">03 / CREATE</span>
+
+                <h3>Projects</h3>
+
+                <p>
+                    Explore previous projects, programming work,
+                    and practical implementations.
+                </p>
+
+                <span class="card-link">
+                    View projects ↗
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="profile-section section-padding"
+         id="profile">
+
+    <div class="container">
+
+        <div class="profile-card">
+
+            <div class="profile-intro">
+
+                <span class="section-kicker">
+                    THE STUDENT BEHIND THE LIBRARY
+                </span>
+
+                <h2>
+                    A little about <span>me.</span>
+                </h2>
+
+                <p>
+                    I'm a Computer Science and Data Science student
+                    building a structured digital space for academic
+                    learning, experimentation, and project development.
+                </p>
+
+                <div class="profile-socials">
+
+                    <a href="{{ student.linkedin }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link">
+
+                        LinkedIn ↗
+
+                    </a>
+
+                    <a href="{{ student.github }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link">
+
+                        GitHub ↗
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="identity-card">
+
+                <div class="identity-top">
+
+                    <span class="identity-brand">
+                        DATAVAULT
+                    </span>
+
+                    <span class="identity-chip">
+                        STUDENT ID
+                    </span>
+
+                </div>
+
+
+                <div class="identity-main">
+
+                    <img
+                        src="{{ url_for('static', filename=student.photo) }}"
+                        alt="Profile photograph of {{ student.name }}"
+                        class="profile-photo">
+
+                    <div class="identity-details">
+
+                        <span class="identity-label">
+                            STUDENT NAME
+                        </span>
+
+                        <h3>{{ student.name }}</h3>
+
+                        <p>{{ student.degree }}</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="identity-divider"></div>
+
+
+                <div class="identity-meta">
+
+                    <div>
+                        <span>GRADUATION YEAR</span>
+                        <strong>{{ student.graduation_year }}</strong>
+                    </div>
+
+                    <div>
+                        <span>SECTION</span>
+                        <strong>{{ student.section }}</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="identity-bottom">
+
+                    <span>DATA SCIENCE DEPARTMENT</span>
+
+                    <span>✳</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

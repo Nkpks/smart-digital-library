@@ -1,0 +1,97 @@
+
+{% extends "base.html" %}
+
+{% block title %}Tools | Smart Digital Library{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <span class="section-kicker">
+            YOUR DATA SCIENCE TOOLKIT
+        </span>
+
+        <h1>
+            The right tools.<br>
+            <span>Better discoveries.</span>
+        </h1>
+
+        <p>
+            Explore useful programming environments, data analysis
+            libraries, visualization frameworks, and machine learning
+            resources for your Data Science journey.
+        </p>
+
+        <div class="page-meta">
+            <span>TECHNICAL RESOURCES</span>
+            <span>OFFICIAL WEBSITES</span>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="content-heading">
+
+            <div>
+                <span class="section-kicker">
+                    EXPLORE YOUR TOOLKIT
+                </span>
+
+                <h2>Tools & technologies</h2>
+            </div>
+
+            <span class="content-count">
+                {{ tools|length }} TOOLS
+            </span>
+
+        </div>
+
+        <div class="tool-grid">
+
+            {% for tool in tools %}
+
+            <article class="tool-card">
+
+                <div class="tool-card-top">
+
+                    <div class="tool-symbol">
+                        {{ tool.symbol }}
+                    </div>
+
+                    <span class="tool-category">
+                        {{ tool.category }}
+                    </span>
+
+                </div>
+
+                <h3>{{ tool.name }}</h3>
+
+                <p>{{ tool.description }}</p>
+
+                <a href="{{ tool.url }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="tool-link">
+
+                    Open Tool <span>↗</span>
+
+                </a>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Course Modules | DataVault{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <span class="section-kicker">
+            THE LEARNING ARCHIVE
+        </span>
+
+        <h1>
+            Your syllabus, <span>simplified.</span>
+        </h1>
+
+        <p>
+            Five structured modules. All your study materials in one place.
+            Select a module to open its corresponding PDF.
+        </p>
+
+        <div class="page-meta">
+            <span>MODULES 01–05</span>
+            <span>PDF STUDY MATERIALS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="content-heading">
+
+            <div>
+                <span class="section-kicker">COURSE CONTENT</span>
+                <h2>Course modules</h2>
+            </div>
+
+            <span class="content-count">
+                {{ modules|length }} MODULES
+            </span>
+
+        </div>
+
+
+        <div class="module-list">
+
+            {% for module in modules %}
+
+            <article class="module-card">
+
+                <div class="module-number">
+
+                    {{ "%02d"|format(module.number) }}
+
+                </div>
+
+
+                <div class="module-info">
+
+                    <span class="module-label">
+                        MODULE {{ "%02d"|format(module.number) }}
+                    </span>
+
+                    <h3>{{ module.title }}</h3>
+
+                    <p>{{ module.description }}</p>
+
+                </div>
+
+
+                <div class="module-action">
+
+                    {% if module.available %}
+
+                    <a href="{{ module.url }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="button button-primary button-small">
+
+                        Open PDF ↗
+
+                    </a>
+
+                    {% else %}
+
+                    <span class="file-missing">
+                        PDF NOT ADDED
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

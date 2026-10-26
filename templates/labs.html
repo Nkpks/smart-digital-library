@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}Lab Experiments | DataVault{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <span class="section-kicker">
+            THE PRACTICAL WORKSPACE
+        </span>
+
+        <h1>
+            Theory meets <span>practice.</span>
+        </h1>
+
+        <p>
+            Access laboratory experiment documents and practical
+            learning resources for Data Science.
+        </p>
+
+        <div class="page-meta">
+            <span>LABORATORY ARCHIVE</span>
+            <span>PDF DOCUMENTS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="content-heading">
+
+            <div>
+                <span class="section-kicker">PRACTICAL LEARNING</span>
+                <h2>Lab experiments</h2>
+            </div>
+
+            <span class="content-count">
+                {{ labs|length }} EXPERIMENTS
+            </span>
+
+        </div>
+
+
+        <div class="lab-grid">
+
+            {% for lab in labs %}
+
+            <article class="lab-card">
+
+                <div class="lab-card-header">
+
+                    <div class="resource-icon icon-purple">
+                        ⌘
+                    </div>
+
+                    <span class="lab-index">
+                        EXP. {{ "%02d"|format(lab.number) }}
+                    </span>
+
+                </div>
+
+
+                <span class="section-kicker">
+                    LABORATORY EXPERIMENT
+                </span>
+
+                <h3>{{ lab.title }}</h3>
+
+                <p>{{ lab.description }}</p>
+
+
+                {% if lab.available %}
+
+                <a href="{{ lab.url }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="button button-primary lab-button">
+
+                    Open Experiment PDF ↗
+
+                </a>
+
+                {% else %}
+
+                <span class="file-missing">
+                    PDF NOT ADDED
+                </span>
+
+                {% endif %}
+
+            </article>
+
+            {% else %}
+
+            <div class="empty-state">
+                <h2>No experiments added yet.</h2>
+                <p>Add your experiment details in app.py.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="notice-box">
+
+            <span class="notice-icon">ⓘ</span>
+
+            <p>
+                Store your lab PDFs in
+                <code>static/pdfs/labs/</code>.
+                Every filename must match its corresponding entry
+                in the <code>LABS</code> list in app.py.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
